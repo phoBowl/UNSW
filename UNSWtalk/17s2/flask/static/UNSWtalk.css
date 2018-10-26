@@ -1,0 +1,101 @@
+/*
+ * written by andrewt@cse.unsw.edu.au October 2017
+ * as a starting point for COMP[29]041 assignment 2
+ * https://cgi.cse.unsw.edu.au/~cs2041/assignments/UNSWtalk/
+ *
+ * Change (or replace) the CSS below to create you own look-and-feel
+ *
+ * You will probably want to add  CSS to this file too
+ */
+
+.unswtalk_heading {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    text-align: center;
+    font-size: 350%;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.unswtalk_user_details {
+    background-color: #ABCDEF;
+    color: #204142;
+    white-space: pre;
+    border:thin solid #204142;
+    border-radius: 1em;
+    padding-left: 0.42em;
+}
+
+.unswtalk_button {
+    background-color: #FEDBCA;
+    border:thin solid #904142;
+    border-radius: 0.42em;
+    color: #904142;
+}
+
+.me_header {
+    background-color: #f77497
+    font-size: x-large;
+    text-align: center;
+    font-weight: bold;
+    color:  #f77497;
+}
+
+.comment_tab{
+    margin-left: 50px;
+}
+
+.reply_tab{
+    margin-left: 80px;
+}
+
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 5px;
+    /*border: none;*/
+    cursor: pointer;
+    /*width: 100%;*/
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    padding: 10px 5px;
+    background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn,.signupbtn {
+    float: left;
+    width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+    padding: 16px;
+}
+
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+    .cancelbtn, .signupbtn {
+        /*width: 100%;*/
+    }
+}

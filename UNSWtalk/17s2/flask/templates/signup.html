@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block body_contents %}
+<p>
+<div class="me_header"><h1>Sign Up</h1></div>
+</p>
+<center><b>{{ message }}</b></center>
+<form action="{{url_for('signUp')}}" method="POST">
+  <div class="container">
+    <label><b>zID</b></label>
+    <input type="text" placeholder="Enter zID" name="zID" required>
+
+    <label><b>Full Name</b></label>
+    <input type="text" placeholder="Enter Your Full Name" name="full_name" required>
+
+    <label><b>Birth Day</b></label>
+    <input type="text" placeholder="YYYY-MM-DD" name="birthday" required>
+
+    <label><b>Student Email</b></label>
+    <input type="text" placeholder="Enter University Email" name="email" required>
+
+    <label><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <label><b>Home Suburb</b></label>
+    <input type="text" placeholder="Enter Suburb" name="home_suburb" required>
+
+    
+    <label><b>Courses</b></label>
+    <input type="text" placeholder="Enter Courses" name="courses" required>
+
+    <input type="checkbox" checked="checked"> Remember me
+    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a></p>
+
+
+    <div class="clearfix">
+      <button type="button"  class="cancelbtn">Cancel</button>
+      <button type="submit" class="signupbtn">Sign Up</button>
+    </div>
+  </div>
+</form>
+{% endblock %}

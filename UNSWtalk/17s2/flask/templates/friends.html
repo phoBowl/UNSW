@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block body_contents %}
+<!-- {{fr}}<br> -->
+<!-- {{hashImage}} -->
+<p>
+<div class="me_header"><h1>Your Mates</h1></div>
+</p>
+
+
+{% for k in hashImage.keys() %}
+  <center><img src='{{ hashImage[k] }}' style='width:250px;height:250px';></center>
+
+  <form action="{{url_for('friendPage')}}" name="myfriend" method="POST">
+  	<center><h5> <input type="submit" class="btn btn-info" name="submit" value="{{ k }}"></h5></center>
+  </form>
+
+  <form method="POST" action="{{url_for('unfriend')}}">
+    <center><input type="submit" name="{{k}}" value="Unfriend" class="btn-danger"></center>
+</form>
+  <br><br><br><br><br>
+
+  
+{% endfor %}
+
+
+<input type="hidden" name="username" value="">
+<input type="hidden" name="inputPassword" value="">
+
+{% endblock %}

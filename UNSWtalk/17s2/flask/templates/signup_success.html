@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block body_contents %}
+
+<p>
+<div class="me_header"><h1>Congratz {{fn}}!</h1></div>
+</p>
+<center><h1>Your account has been created with email {{email}}</h1></center>
+<form method="POST" action="{{url_for('login')}}">
+    <input type="submit" value="Back to login" class="unswtalk_button">
+</form>
+{% endblock %}

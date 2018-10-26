@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block body_contents %}
+<head>
+<div class="me_header"><h1>Dude! I apologise for this unexpected page but your posting, delete post, uploading image or any other actions have been completed 
+<h1>Thank You ! :)</h1></h1></div>
+</head>
+<form method="POST" action="{{url_for(homepage)}}">
+    <input type="submit" value="Click Here To Back to home page" class="unswtalk_button">
+</form>
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block body_contents %}
+<!-- {{hp}} -->
+<p>
+<div class="me_header"><h1>{{ friendID }}</h1></div>
+</p>
+<center><img src='{{ avatar }}' style='width:250px;height:250px';></center>
+<div class="me_header"><center><h2>{{full_name}}</h2></center></div>
+<div class="me_header"><center><h3>{{program}}</h3></center></div>
+
+<!-- POST -->
+
+{% for dateKey in hp.keys() %}
+   {% set list = hp[dateKey].get('List') %}
+    <!-- Should not let people delete post on their friends' pages -->
+    <!-- <form action="/deletePost" name="deletePost" method="POST">
+      <input type="submit" name="{{dateKey}}friendPage" value="Delete Post">
+    </form>
+     --> 
+    <img src={{ list[0] }} style='width:50px;height:50px';>
+    
+    <form action="{{url_for('friendPage')}}" name="myfriend" method="POST">
+    <h5><b>Posted by: {{ list[1] }}</b> <input type="submit" class="btn-link"  name="submit" value="{{list[2]}}"> {{ list[3] }}</h5>
+     </form>   
+
+    {% set calendar = hp[dateKey].get('Calendar') %}
+    <h10><i><b>Sent at:</b> {{ calendar[0] }} {{calendar[1]}} {{ calendar[2] }}</i></h10>    
+    
+    {% set message = hp[dateKey].get('Message') %}
+    <h5><b>Message: </b>{{message}}</h5>
+    
+    <!-- Commment on post -->
+    <div class="comment_tab">
+    {% set commentHash = hp[dateKey].get('Comment') %}
+    {% for commentfile in commentHash.keys() %}
+        <!-- {{commentfile}} -->
+        {% set listC = commentHash[commentfile].get('List') %}
+        <img src={{ listC[0] }} style='width:50px;height:50px';>
+        
+        <form action="{{url_for('friendPage')}}" name="myfriend" method="POST">
+        <h5><b>Commented by: {{ listC[1] }}</b> <input type="submit" class="btn-link"  name="submit" value="{{listC[2]}}"> {{ listC[3] }}</h5>
+        </form>
+        
+        {% set calendarC = commentHash[commentfile].get('Calendar') %}
+        <h10><i><b>Sent at:</b> {{ calendarC[0] }} {{calendarC[1]}} {{ calendarC[2] }}</i></h10>    
+
+        {% set messageC = commentHash[commentfile].get('Message') %}
+        <h5><b>Message: </b>{{messageC}}</h5>
+          <!-- Reply on comment -->
+            <div class="reply_tab">
+            {% set replyHash = commentHash[commentfile].get('HashReply') %}
+
+            {% for replyFile in replyHash.keys() %}
+                {% set listR = replyHash[replyFile].get('List') %}
+                <img src={{ listR[0] }} style='width:50px;height:50px';>
+                
+                <form action="{{url_for('friendPage')}}" name="myfriend" method="POST">
+                <h5><b>Replied by: {{ listR[1] }}</b> <input type="submit" class="btn-link"  name="submit" value="{{listR[2]}}"> {{ listR[3] }}</h5>
+                </form>
+
+                {% set calendarR = replyHash[replyFile].get('Calendar') %}
+                <h10><i><b>Sent at:</b> {{ calendarR[0] }} {{calendarR[1]}} {{ calendarR[2] }}</i></h10>
+             
+                {% set messageR = replyHash[replyFile].get('Message') %}
+                <h5><b>Message: </b>{{messageR}}</h5>
+            
+            {% endfor %}
+          </div>
+        
+    {% endfor %}
+  </div>
+    <br><br><br>
+{% endfor %} 
+{% endblock %}

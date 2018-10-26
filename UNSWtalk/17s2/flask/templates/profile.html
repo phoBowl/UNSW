@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block body_contents %}
+<div class="unswtalk_student_details">
+<p>
+<div class="me_header"><h1>Profile<br>{{fn}}</h1></div>
+
+</p>
+</div>
+{{student_details}}
+{% if ZID in hashImage.keys() %}
+	<img src='{{hashImage[ZID]}}' style='width:200px;height:200px';>
+{% endif %}
+
+<!--UPLOAD BOX -->
+    <form method='POST' enctype=multipart/form-data action="{{url_for('uploadImage')}}">
+    <input type="file" name="picture">
+    <input type="submit" value="Upload">
+    </form>
+<!--END UPLOAD BOX -->
+
+
+    <input type="hidden" name="n" value="7">
+    <br><br>
+    Full Name: {{fn}}<br>
+    Birth Day: {{bd}}<br>
+    Home Suburb: {{homesuburb}}<br><br>
+
+    Email: {{em}}<br>
+    Zid:	{{ZID}}<br><br>
+    
+
+
+<form method="POST" action="{{url_for('deleteAccount')}}">
+    <input type="submit" value="Delete Account" class="btn-danger">
+</form>
+    
+<form method="POST" action="{{url_for('homepage')}}">
+    <input type="submit" value="Back to home" class="unswtalk_button">
+</form>
+{% endblock %}
