@@ -1,0 +1,50 @@
+/* (1)
+  C
+*/
+int number;
+...
+number++;
+
+/* (1) translate to
+===>	Assembly
+*/
+number dw  0  //dw : define word 
+......
+mov eax,number  // put the value into eax register
+inc eax         // increase eax by 1 
+mov number,eax  // put value of eax to number
+
+
+/*
+(2) if statement in C
+*/
+int number;
+if(number < 0 ){
+	.....
+}
+
+/* (2)
+===> translate to Assembly
+*/
+number dw 0  //define value number
+mov eax,number //move the value store in number to eax
+or eax,eax    //
+jge label     //if Greater than or equal to 0 jump to label
+<no>
+label: <yes>
+
+
+/* (3)
+C --- array
+*/
+int array[4]
+......
+array[2] =9;
+
+/*
+(3) translate to assembly
+*/
+array dw 0,0,0,0  //declare an array size 4
+.......
+mov ebx,2 		//move 2 into ebx register
+mov array[ebx],9 //move 9 into array[ebx] = array[2]

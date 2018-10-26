@@ -1,0 +1,29 @@
+/*
+Empty function in practice
+*/
+
+void dbg_print(const char *fmt,...)
+{
+	#ifdef _DEBUG
+				//open log file
+				//write to log file
+				// close to log file
+	#endif 
+};
+
+void some_function(){
+	...
+	dbg_print("we did something\n");
+	...
+};
+
+/*
+Another apply : popular way of software protection : one for legal customer , and a demo build
+ 				Demo build : lack of some important functions,
+*/
+void save_file(){
+	#ifndef DEMO
+			//actual saving code
+	#endif
+};
+//save_file () : when user click File-> Save menu 	
